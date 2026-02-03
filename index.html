@@ -5,7 +5,12 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>The Proposal</title>
     <link rel="stylesheet" href="style.css">
+
     <link rel="prefetch" href="nicetry.html">
+    <link rel="prefetch" href="static/hamster.gif">
+    <link rel="prefetch" href="static/speed.gif">
+    <link rel="prefetch" href="static/cat_laughing.gif">
+    <link rel="dns-prefetch" href="https://cdn.jsdelivr.net">
     <link rel="prefetch" href="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js">
     <title>💜💍</title>
 </head>
@@ -15,11 +20,32 @@
         <div class="the-proposal">
             <img src="static/hamster.gif" alt="hamster" class="hamster-gif">
             <p class="romantic-text">
-                Sakshi, you’re the <span class="legendary">legendary loot</span> I’ve been searching for. <br>
-                <strong>Will you marry me?</strong>
+            <span class="legendary">Sakshi</span>, you’re the person I’ve been searching for all my life.<br>
+                <strong>So, Will you marry me?</strong>
             </p>
             <div class="button-container">
                 <button class="btn btn-yes" id="yesBtn">Yes!</button>
+                <script>
+                    const yesBtn = document.querySelector('#yesBtn');
+                    
+                    // 1. Pre-load the image into the browser cache immediately
+                    const img1 = new Image();
+                    const img2 = new Image();
+                    const img3 = new Image();
+                    img1.src = "static/hamster.gif";
+                    img2.src = "static/speed.gif";
+                    img3.src = "static/cat_laughing.gif";
+
+                    yesBtn.addEventListener('click', () => {
+                        // 2. Add a quick fade-out so the transition feels purposeful and smooth
+                        document.body.style.opacity = '0';
+                        document.body.style.transition = 'opacity 0.2s ease';
+                        
+                        // 3. Jump to the next page
+                        window.location.href = "nicetry.html";
+                    });
+                </script>
+
                 <button class="btn btn-no">No?</button>
             </div>
         </div>

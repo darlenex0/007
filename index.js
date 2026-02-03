@@ -1,5 +1,4 @@
 const noBtn = document.querySelector('.btn-no');
-const yesBtn = document.querySelector('#yesBtn');
 
 // A list of funny responses to cycle through
 const funnyMessages = [
