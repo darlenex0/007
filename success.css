@@ -1,0 +1,43 @@
+.gif-container {
+    height: 150px; /* Match your gif height to prevent layout jump */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.hidden {
+    display: none;
+}
+
+/* Fade In animation */
+.fade-in {
+    animation: fadeIn 1.5s ease-in forwards;
+}
+
+/* Specific class for the first gif to fade out */
+.fade-out {
+    animation: fadeOut 1.5s ease-out forwards;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: scale(0.9); }
+    to { opacity: 1; transform: scale(1); }
+}
+
+@keyframes fadeOut {
+    from { opacity: 1; transform: scale(1); }
+    to { opacity: 0; transform: scale(1.1); }
+}
+
+.romantic-line {
+    display: block;
+    font-weight: bold;
+    color: #ff4d6d;
+    text-shadow: 0 0 8px rgba(255, 77, 109, 0.5);
+    animation: textGlow 2s infinite alternate;
+}
+
+@keyframes textGlow {
+    from { text-shadow: 0 0 5px #ff4d6d; }
+    to { text-shadow: 0 0 15px #ff4d6d, 0 0 20px #ff8fa3; }
+}

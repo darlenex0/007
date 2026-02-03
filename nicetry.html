@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Yay! | Achievement Unlocked</title>
+    <link rel="stylesheet" href="success.css">
+    <style>
+        body {
+            background-color: pink;
+            height: 100vh;
+            margin: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-family: system-ui, sans-serif;
+            overflow: hidden; /* Prevent scrollbars during confetti */
+        }
+        .success-card {
+            background: white;
+            padding: 3rem;
+            border-radius: 30px;
+            text-align: center;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            animation: popIn 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+        }
+        @keyframes popIn {
+            0% { transform: scale(0.5); opacity: 0; }
+            100% { transform: scale(1); opacity: 1; }
+        }
+        h1 { color: #d63384; margin-bottom: 1rem; }
+        .legendary-badge {
+            color: #ffb800;
+            font-weight: bold;
+            text-shadow: 0 0 10px rgba(255, 184, 0, 0.5);
+        }
+    </style>
+</head>
+<body>
+
+<div class="success-card">
+    <h1>HE HEE! ❤️</h1>
+    
+    <div class="gif-container" style="position: relative; height: 150px; display: flex; justify-content: center;">
+        <img id="gif1" src="static/speed.gif" alt="Intro Animation" 
+             style="width: 150px; border-radius: 15px; position: absolute; transition: opacity 1s;">
+        <img id="gif2" src="static/cat_laughing.gif" alt="Happy Hamster" 
+             style="width: 150px; border-radius: 15px; position: absolute; opacity: 0; transition: opacity 1s;">
+    </div>
+
+    <p style="font-size: 1.2rem; margin-top: 1.5rem;">
+        lol <br>
+        <span class="legendary-badge">apology for the bait</span>
+        <br><br>
+        <span class="romantic-line">Sakshi, I’d love to tell you I’ll miss you, but my honesty policy won't allow it—so, best of luck in your travels away from me!</span>
+    </p>
+</div>
+
+<script>
+    const g1 = document.getElementById('gif1');
+    const g2 = document.getElementById('gif2');
+    let showingFirst = true;
+
+    // This function swaps the visibility every 4 seconds
+    setInterval(() => {
+        if (showingFirst) {
+            g1.style.opacity = "0";
+            g2.style.opacity = "1";
+        } else {
+            g1.style.opacity = "1";
+            g2.style.opacity = "0";
+        }
+        showingFirst = !showingFirst;
+    }, 4000); // 4000ms = stays on each GIF for 4 seconds
+</script>
+
+<style>
+    .romantic-line {
+        display: block;
+        font-weight: bold;
+        color: #ff4d6d;
+        /* Adds a "Power-Up" glow effect */
+        text-shadow: 0 0 10px rgba(255, 77, 109, 0.8);
+        animation: breath 2s infinite alternate;
+    }
+
+    @keyframes breath {
+        from { transform: scale(1); opacity: 0.9; }
+        to { transform: scale(1.02); opacity: 1; }
+    }
+</style>
+
+
+
+    <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
+    
+    <script>
+        // Trigger confetti immediately when the page loads
+        const duration = 5 * 1000;
+        const animationEnd = Date.now() + duration;
+        const defaults = { startVelocity: 30, spread: 360, ticks: 60, zIndex: 0 };
+
+        function randomInRange(min, max) {
+          return Math.random() * (max - min) + min;
+        }
+
+        const interval = setInterval(function() {
+          const timeLeft = animationEnd - Date.now();
+
+          if (timeLeft <= 0) {
+            return clearInterval(interval);
+          }
+
+          const particleCount = 50 * (timeLeft / duration);
+          
+          // Confetti from left
+          confetti({ ...defaults, particleCount, origin: { x: randomInRange(0.1, 0.3), y: Math.random() - 0.2 } });
+          // Confetti from right
+          confetti({ ...defaults, particleCount, origin: { x: randomInRange(0.7, 0.9), y: Math.random() - 0.2 } });
+        }, 250);
+    </script>
+
+    <script>
+        const firstGif = document.getElementById('gif1');
+        const secondGif = document.getElementById('gif2');
+
+        // Wait 3 seconds, then start the transition
+        setTimeout(() => {
+            firstGif.classList.add('fade-out');
+            
+            // Wait for the fade-out animation to finish (1.5s)
+            setTimeout(() => {
+                firstGif.style.display = 'none'; // Completely remove it
+                secondGif.classList.remove('hidden');
+                secondGif.classList.add('fade-in');
+                secondGif.style.width = "150px"; // Ensure size consistency
+                secondGif.style.borderRadius = "15px";
+            }, 1500); 
+            
+        }, 3000); // 3000ms = 3 seconds of the first GIF
+    </script>
+
+</body>
+</html>
